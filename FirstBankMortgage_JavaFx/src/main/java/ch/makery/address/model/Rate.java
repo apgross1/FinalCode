@@ -22,7 +22,6 @@ public class Rate extends RateDomainModel {
 		//	Number of Payments (passed in)
 		
 		double interest = RateDAL.getRate(creditScore);
-		System.out.println("Interest is: " + interest);
 		double pv = FinanceLib.pv((interest/100)/12, NumberOfPayments, -1 * houseCost, 0, true);
 		double mortgage_pay = FinanceLib.pmt((interest/100)/12, NumberOfPayments, -1*houseCost, 0, true);
 		

@@ -18,25 +18,25 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="incomeString" layoutX="14.0" layoutY="40.0" onKeyPressed="#updateValue" prefHeight="21.0" prefWidth="206.0" />
+                  <TextField fx:id="incomeString" layoutX="14.0" layoutY="40.0" onKeyReleased="#updateValue" prefHeight="21.0" prefWidth="206.0" />
                   <Label fx:id="expense" layoutX="14.0" layoutY="84.0" prefHeight="21.0" prefWidth="130.0" text="Monthly Expenses">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="expenseString" layoutX="14.0" layoutY="105.0" onKeyPressed="#updateValue" prefHeight="21.0" prefWidth="206.0" />
+                  <TextField fx:id="expenseString" layoutX="14.0" layoutY="105.0" onKeyReleased="#updateValue" prefHeight="21.0" prefWidth="206.0" />
                   <Label fx:id="credScore" layoutX="14.0" layoutY="152.0" prefHeight="21.0" prefWidth="89.0" text="Credit Score">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="credScoreString" layoutX="14.0" layoutY="173.0" onKeyPressed="#updateValue" prefHeight="21.0" prefWidth="206.0" />
+                  <TextField fx:id="credScoreString" layoutX="14.0" layoutY="173.0" onKeyReleased="#updateValue" prefHeight="21.0" prefWidth="206.0" />
                   <Label fx:id="housePrice" layoutX="14.0" layoutY="218.0" prefHeight="21.0" prefWidth="89.0" text="House Price">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="housePriceString" layoutX="14.0" layoutY="239.0" onKeyPressed="#updateValue" prefHeight="21.0" prefWidth="206.0" />
+                  <TextField fx:id="housePriceString" layoutX="14.0" layoutY="239.0" onKeyReleased="#updateValue" prefHeight="21.0" prefWidth="206.0" />
                   <ComboBox fx:id="timePeriod" layoutX="14.0" layoutY="295.0" onAction="#handleClicked" prefHeight="31.0" prefWidth="206.0" promptText="Select term years" />
                </children>
             </AnchorPane>

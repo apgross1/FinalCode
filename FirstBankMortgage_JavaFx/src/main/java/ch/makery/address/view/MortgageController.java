@@ -87,20 +87,9 @@ public class MortgageController implements Initializable {
     private boolean allFilled() {
     	if ((incomeString.getText().isEmpty() != true) & (expenseString.getText().isEmpty() != true) & (credScoreString.getText().isEmpty() != true) &
     			(housePriceString.getText().isEmpty() != true) & (this.isClicked == true)) {
-    		System.out.println(incomeString.getText());
-	    	System.out.println(expenseString.getText());
-	    	System.out.println(credScoreString.getText());
-	    	System.out.println(housePriceString.getText());
-	    	System.out.println(this.isClicked);
-    		System.out.println("All pressed");
     		return true;
     	}
     	else
-    		System.out.println(incomeString.getText());
-	    	System.out.println(expenseString.getText());
-	    	System.out.println(credScoreString.getText());
-	    	System.out.println(housePriceString.getText());
-	    	System.out.println(this.isClicked);
     		return false;
     }
     
