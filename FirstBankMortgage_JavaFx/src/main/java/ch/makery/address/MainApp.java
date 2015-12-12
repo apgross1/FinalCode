@@ -36,13 +36,14 @@ public class MainApp extends Application {
      * Constructor
      */
     public MainApp() {
-
+    	ArrayList<RateDomainModel> getRates = RateDAL.getRateDomainModel();
     }
 
 
 
     @Override
     public void start(Stage primaryStage) {
+    	
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("FirstBankMortgage");
         

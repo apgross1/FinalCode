@@ -1,10 +1,15 @@
 package ch.makery.address.model;
 
+import ch.makery.address.view.MortgageController;
 import domain.RateDomainModel;
+import org.apache.poi.ss.formula.functions.FinanceLib;
+
+import base.RateDAL;;
 
 public class Rate extends RateDomainModel {
 	
-	public double getPayment(int NumberOfPayments)
+	
+	public static double getPayment(int NumberOfPayments, int creditScore, int houseCost)
 	{
 		//FinalExam
 		//	Normally this kind of method would be in a BLL, but alas...
@@ -16,8 +21,11 @@ public class Rate extends RateDomainModel {
 		//	Compounding = True
 		//	Number of Payments (passed in)
 		
+		double interest = RateDAL.getRate(creditScore);
+		System.out.println("Interest is: " + interest);
+		double pv = FinanceLib.pv((interest/100)/12, NumberOfPayments, -1 * houseCost, 0, true);
+		double mortgage_pay = FinanceLib.pmt((interest/100)/12, NumberOfPayments, -1*houseCost, 0, true);
 		
-		
-		return 0;
+		return mortgage_pay;
 	}
 }

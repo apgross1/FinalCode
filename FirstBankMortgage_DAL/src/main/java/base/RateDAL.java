@@ -11,7 +11,6 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import domain.RateDomainModel;
-import domain.StudentDomainModel;
 import util.HibernateUtil;
 
 public class RateDAL {
