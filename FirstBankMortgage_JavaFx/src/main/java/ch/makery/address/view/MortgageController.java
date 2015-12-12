@@ -20,17 +20,19 @@ public class MortgageController implements Initializable {
 	private Label income;
 	@FXML
 	private TextField incomeString;
+	private Integer incomeInt;
 	
 	@FXML
 	private Label expense;
 	@FXML
 	private TextField expenseString;
-
+	private Integer expenseInt;
 	
 	@FXML
 	private Label credScore;
 	@FXML
 	private TextField credScoreString;
+
 	
 	@FXML
 	private Label housePrice;
@@ -102,13 +104,22 @@ public class MortgageController implements Initializable {
     		return false;
     }
     
+    public boolean canPurchase(Double mortgage) {
+    	if ((mortgage <= (this.getIncomeInt() * .36)) && (mortgage <= ((this.getIncomeInt() - this.getExpenseInt()*12)*.18))) {
+    		return true;
+    	}
+    	else
+    		return false;
+    }
 
 	@FXML
     public void updateValue() {
     	if (this.allFilled() == true) {
+    		this.setExpenseInt(this.getExpenseString());
+    		this.setIncomeInt(this.getIncomeString());
     		//NOTE! I changed (income+expenses) to (income-expenses); is this correct?
     		Double mortgage = Rate.getPayment(this.getTimePeriod()*12, this.getCredScoreString(), this.getHousePriceString());
-    		if ((mortgage <= (this.getIncomeString().intValue() * .36)) && (mortgage <= ((this.getIncomeString().intValue() - this.getExpenseString().intValue()*12)*.18))) {
+    		if (canPurchase(mortgage) == true) {
     			this.mortgagePrice.setText("$" + Math.round(mortgage) + " a month");
     		}
     		else
@@ -132,10 +143,11 @@ public class MortgageController implements Initializable {
 	
 	public Integer getIncomeString() {
 		Integer income = new Integer(incomeString.getText());
+		
 		return income;
 	}
 
-	public Integer getExpenseString() {
+	public Integer getExpenseString() {	
 		Integer expense = new Integer(expenseString.getText());
 		return expense;
 	}
@@ -152,6 +164,9 @@ public class MortgageController implements Initializable {
 		return housePrice;
 	}
 
+	
+	
+	
 	public Integer getTimePeriod() {
 		Integer yr;
 		if (this.timePeriod.getValue().equals("15 years")) {
@@ -162,6 +177,58 @@ public class MortgageController implements Initializable {
 			yr = new Integer(30);
 		
 		return yr;
+	}
+
+	public boolean isClicked() {
+		return isClicked;
+	}
+
+	public void setClicked(boolean isClicked) {
+		this.isClicked = isClicked;
+	}
+
+	public void setIncomeString(TextField incomeString) {
+		this.incomeString = incomeString;
+	}
+
+	public void setExpenseString(TextField expenseString) {
+		this.expenseString = expenseString;
+	}
+
+	public void setCredScoreString(TextField credScoreString) {
+		this.credScoreString = credScoreString;
+	}
+
+	public void setHousePriceString(TextField housePriceString) {
+		this.housePriceString = housePriceString;
+	}
+
+	public void setTimePeriod(ComboBox<String> timePeriod) {
+		this.timePeriod = timePeriod;
+	}
+
+	public Label getMortgagePrice() {
+		return mortgagePrice;
+	}
+
+	public void setMortgagePrice(Label mortgagePrice) {
+		this.mortgagePrice = mortgagePrice;
+	}
+
+	public Integer getIncomeInt() {
+		return incomeInt;
+	}
+
+	public void setIncomeInt(Integer incomeInt) {
+		this.incomeInt = incomeInt;
+	}
+
+	public Integer getExpenseInt() {
+		return expenseInt;
+	}
+
+	public void setExpenseInt(Integer expenseInt) {
+		this.expenseInt = expenseInt;
 	}
 
 }

@@ -4,7 +4,7 @@ import ch.makery.address.view.MortgageController;
 import domain.RateDomainModel;
 import org.apache.poi.ss.formula.functions.FinanceLib;
 
-import base.RateDAL;;
+import base.RateDAL;
 
 public class Rate extends RateDomainModel {
 	
