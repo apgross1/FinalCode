@@ -94,7 +94,19 @@ public class MortgageController implements Initializable {
     }
     
     public boolean canPurchase(Double mortgage) {
-    	if ((mortgage <= (this.getIncomeInt() * .36)) && (mortgage <= ((this.getIncomeInt() - this.getExpenseInt()*12)*.18))) {
+    	
+    	System.out.println(this.getIncomeInt()/12 * .36);
+    	System.out.println(((this.getIncomeInt()/12)));
+    	System.out.println(((this.getIncomeInt()/12) - this.getExpenseInt())*.18);
+    	
+    	System.out.println((this.getExpenseInt()));
+ 
+    	System.out.println(((this.getIncomeInt()/12) + this.getExpenseInt())*.18);
+    	
+    	System.out.println(mortgage <= ((this.getIncomeInt()/12) + this.getExpenseInt())*.18);
+    	
+    	
+    	if ((mortgage <= ((this.getIncomeInt()/12) * .36)) && (mortgage <= (((this.getIncomeInt()/12) - this.getExpenseInt())*.28))) {
     		return true;
     	}
     	else

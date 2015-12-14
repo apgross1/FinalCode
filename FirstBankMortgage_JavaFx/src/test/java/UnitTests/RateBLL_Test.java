@@ -22,7 +22,7 @@ public class RateBLL_Test {
 	
 	
 	@Test
-    public void test() {
+    public void output_test() {
        double myPmt = FinanceLib.pmt((double)0.04/12, (double)360, (double)300000, (double)0,false);
        BigDecimal mypmT = new BigDecimal(myPmt, MathContext.DECIMAL32);
        System.out.println(mypmT.shortValue());
@@ -45,16 +45,15 @@ public class RateBLL_Test {
 		MortgageController mortgageCont = new MortgageController();
 		Double mortgage = Rate.getPayment(360, 730, 300000);
 		
-		//75000*.36 = 27000; (75000-64800)*.18 = 1836; 
+		//(90000/12)*.36 = 2700; ((90000/12)-1300)*.28 = 1736; 
 		//both are greater than mortgage payment of 1432.25. This test should assert True
-		mortgageCont.setExpenseInt(new Integer(5400));
-		mortgageCont.setIncomeInt(new Integer(75000));
+		mortgageCont.setExpenseInt(new Integer(1300));
+		mortgageCont.setIncomeInt(new Integer(90000));
 		assertTrue(mortgageCont.canPurchase(mortgage) == true);
 		
 		
-		//24000*.36 = 8640; (24000-16800)*.18 = 1296; 
-		//Removing yearly expenses from income leads to 
-		//a value less than mortgage payment of 1432.25. This test should
+		//(24000/12)*.36 = 720;
+		//The test has a value less than mortgage payment of 1432.25. This test should
 		//pass when comparing it to false
 		mortgageCont.setExpenseInt(new Integer(1400));
 		mortgageCont.setIncomeInt(new Integer(24000));
