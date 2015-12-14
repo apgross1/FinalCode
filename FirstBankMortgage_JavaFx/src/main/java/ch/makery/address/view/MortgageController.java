@@ -109,7 +109,7 @@ public class MortgageController implements Initializable {
     		//NOTE! I changed (income+expenses) to (income-expenses); is this correct?
     		Double mortgage = Rate.getPayment(this.getTimePeriod()*12, this.getCredScoreString(), this.getHousePriceString());
     		if (canPurchase(mortgage) == true) {
-    			this.mortgagePrice.setText("$" + Math.round(mortgage) + " a month");
+    			this.mortgagePrice.setText("$" + mortgage + " a month");
     		}
     		else
     			this.mortgagePrice.setText("House cost too high");
